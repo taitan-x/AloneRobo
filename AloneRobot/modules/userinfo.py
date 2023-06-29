@@ -299,7 +299,7 @@ def info(update: Update, context: CallbackContext):
         disaster_level_present = True
 
     if disaster_level_present:
-        text += ' \n[<a href="https://t.me/Alonebotzone/26">ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ᴋɴᴏᴡ ᴡʜᴀᴛ ɪs ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟs.</a>]'.format(
+        text += ' \n[<a href="https://t.me/AloneXBots">ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ᴋɴᴏᴡ ᴡʜᴀᴛ ɪs ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟs.</a>]'.format(
             bot.username
         )
 
@@ -337,16 +337,16 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "ᴅᴇᴠᴇʟᴏᴘᴇʀ", url="https://t.me/the_vip_boy"
+                                "ᴅᴇᴠᴇʟᴏᴘᴇʀ", url="https://t.me/ALONE_WAS_BOT"
                             ),
                             InlineKeyboardButton(
-                                "Dɪsᴀsᴛᴇʀ", url="https://t.me/vip_creators"
+                                "Dɪsᴀsᴛᴇʀ", url="https://t.me/AloneXBots"
                             ),
                         ],
                         [
                             InlineKeyboardButton(
                                 text="➕ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ➕",
-                                url=f"https://t.me/tg_manager_robot?startgroup=true",
+                                url=f"https://t.me/AloneXMusicBot?startgroup=true",
                             ),
                         ],
                     ]
@@ -363,16 +363,16 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "ᴅᴇᴠᴇʟᴏᴘᴇʀ", url="https://t.me/the_vip_boy"
+                                "ᴅᴇᴠᴇʟᴏᴘᴇʀ", url="https://t.me/ALONE_WAS_BOT"
                             ),
                             InlineKeyboardButton(
-                                "ᴅɪsᴀsᴛᴇʀ", url="https://t.me/vip_creators"
+                                "ᴅɪsᴀsᴛᴇʀ", url="https://t.me/AloneXBots"
                             ),
                         ],
                         [
                             InlineKeyboardButton(
                                 text="➕ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ➕",
-                                url=f"https://t.me/tg_manager_robot?startgroup=true",
+                                url=f"https://t.me/AloneXMusicBot?startgroup=true",
                             ),
                         ],
                     ]
