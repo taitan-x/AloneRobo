@@ -30,11 +30,9 @@ __help__ = """
 *ᴅᴇᴠ  ᴏɴʟʏ:* 
 • /snipe <ᴄʜᴀᴛɪᴅ> <sᴛʀɪɴɢ>
 ᴍᴀᴋᴇ ᴍᴇ sᴇɴᴅ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ ᴀ sᴘᴇᴄɪғɪᴄ ᴄʜᴀᴛ.
-
-☆............𝙱𝚈 » [𝙰𝙻𝙾𝙽𝙴](https://t.me/ALONE_WAS_BOT)............☆
 """
 
-__mod_name__ = "⚡sɴɪᴘᴇ⚡"
+__mod_name__ = "Sɴɪᴘᴇ"
 
 SNIPE_HANDLER = CommandHandler(
     "snipe", snipe, pass_args=True, filters=CustomFilters.dev_filter

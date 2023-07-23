@@ -7,12 +7,10 @@ from AloneRobot import dispatcher
 from AloneRobot.modules.helper_funcs.alternate import send_message
 from AloneRobot.modules.helper_funcs.chat_status import user_admin
 
-__mod_name__ = "📍𝙿ʜᴏɴᴇ📍"
+__mod_name__ = "𝙿ʜᴏɴᴇ"
 __help__ = """
 » /phone ꜰɪʟʟ ᴀɴʏ ᴍᴏʙɪʟᴇ ɴᴜᴍʙᴇʀ ᴛᴏ ᴄʜᴇᴄᴋ ɪɴꜰᴏ.
-
-
-☆............𝙱𝚈 » [𝙰𝙻𝙾𝙽𝙴](https://t.me/ALONE_WAS_BOT)............☆"""
+"""
 
 
 @run_async

@@ -1,6 +1,5 @@
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.ext import CallbackContext, CommandHandler, Filters
-from telegram.ext.dispatcher import run_async
 
 from AloneRobot import dispatcher
 from AloneRobot.modules.disable import DisableAbleCommandHandler
@@ -31,7 +30,6 @@ sᴀᴠᴇᴅ ᴍᴇssᴀɢᴇs ᴀʀᴇ ᴄᴏʀʀᴇᴄᴛʟʏ ᴘᴀʀsᴇᴅ
 """
 
 
-@run_async
 @user_admin
 def echo(update: Update, context: CallbackContext):
     args = update.effective_message.text.split(None, 1)
@@ -60,7 +58,6 @@ def markdown_help_sender(update: Update):
     )
 
 
-@run_async
 def markdown_help(update: Update, context: CallbackContext):
     if update.effective_chat.type != "private":
         update.effective_message.reply_text(
@@ -90,26 +87,17 @@ __help__ = """
  ❍ /ud <ᴡᴏʀᴅ>*:* ᴛʏᴘᴇ ᴛʜᴇ ᴡᴏʀᴅ ᴏʀ ᴇxᴘʀᴇssɪᴏɴ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ sᴇᴀʀᴄʜ ᴜsᴇ
 *ᴡɪᴋɪᴘᴇᴅɪᴀ:*
  ❍ /wiki  <ǫᴜᴇʀʏ>*:* ᴡɪᴋɪᴘᴇᴅɪᴀ ʏᴏᴜʀ ǫᴜᴇʀʏ
-*ᴡᴀʟʟᴘᴀᴘᴇʀs:*
- ❍ /wall  <ǫᴜᴇʀʏ>*:* ɢᴇᴛ ᴀ ᴡᴀʟʟᴘᴀᴘᴇʀ ғʀᴏᴍ ᴡᴀʟʟ.ᴀʟᴘʜᴀᴄᴏᴅᴇʀs.ᴄᴏᴍ
-*ᴄᴜʀʀᴇɴᴄʏ ᴄᴏɴᴠᴇʀᴛᴇʀ:* 
- ❍ /cash *:* ᴄᴜʀʀᴇɴᴄʏ ᴄᴏɴᴠᴇʀᴛᴇʀ
-ᴇxᴀᴍᴘʟᴇ:
- `/ᴄᴀsʜ 1 ᴜsᴅ ɪɴʀ`  
-      _ᴏʀ_
- `/ᴄᴀsʜ 1 ᴜsᴅ ɪɴʀ`
-ᴏᴜᴛᴘᴜᴛ: `1.0 ᴜsᴅ = 75.505 ɪɴʀ`
-
-☆............𝙱𝚈 » [𝙰𝙻𝙾𝙽𝙴](https://t.me/ALONE_WAS_BOT)............☆
 """
 
-ECHO_HANDLER = DisableAbleCommandHandler("echo", echo, filters=Filters.group)
-MD_HELP_HANDLER = CommandHandler("markdownhelp", markdown_help)
+ECHO_HANDLER = DisableAbleCommandHandler(
+    "echo", echo, filters=Filters.chat_type.groups, run_async=True
+)
+MD_HELP_HANDLER = CommandHandler("markdownhelp", markdown_help, run_async=True)
 
 dispatcher.add_handler(ECHO_HANDLER)
 dispatcher.add_handler(MD_HELP_HANDLER)
 
-__mod_name__ = "📍Exᴛʀᴀs📍"
+__mod_name__ = "Exᴛʀᴀs"
 __command_list__ = ["id", "echo"]
 __handlers__ = [
     ECHO_HANDLER,

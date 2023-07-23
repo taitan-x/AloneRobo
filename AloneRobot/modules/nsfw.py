@@ -798,7 +798,7 @@ __handlers__ = [
     BAKA_HANDLER,
     DVA_HANDLER,
 ]
-__mod_name__ = "⚡ɴsғᴡ⚡"
+__mod_name__ = "Nsғᴡ"
 
 __help__ = """
 *ɴsғᴡ:*
@@ -856,6 +856,4 @@ __help__ = """
 ❂ /smug : sᴇɴᴅs ʀᴀɴᴅᴏᴍ sᴍᴜɢ ɢɪғs.
 ❂ /baka : sᴇɴᴅs ʀᴀɴᴅᴏᴍ ʙᴀᴋᴀ sʜᴏᴜᴛ ɢɪғs.
 ❂ /dva : sᴇɴᴅs ʀᴀɴᴅᴏᴍ ᴅ.ᴠᴀ sᴏᴜʀᴄᴇ ɪᴍᴀɢᴇs.
-
-
-☆............𝙱𝚈 » [𝙰𝙻𝙾𝙽𝙴](https://t.me/ALONE_WAS_BOT)............☆"""
+"""

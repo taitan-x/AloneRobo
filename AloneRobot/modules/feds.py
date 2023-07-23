@@ -39,15 +39,7 @@ from AloneRobot.modules.helper_funcs.extraction import (
 )
 from AloneRobot.modules.helper_funcs.string_handling import markdown_parser
 
-# Hello bot owner, I spended for feds many hours of my life, Please don't remove this if you still respect MrYacha and peaktogoo and AyraHikari too
-# Federation by MrYacha 2018-2019
-# Federation rework by Mizukito Akito 2019
-# Federation update v2 by Ayra Hikari 2019
-# Time spended on feds = 10h by #MrYacha
-# Time spended on reworking on the whole feds = 22+ hours by @peaktogoo
-# Time spended on updating version to v2 = 26+ hours by @AyraHikari
-# Total spended for making this features is 68+ hours
-# LOGGER.info("Original federation module by MrYacha, reworked by Mizukito Akito (@peaktogoo) on Telegram.")
+
 
 FBAN_ERRORS = {
     "ᴜsᴇʀ ɪs ᴀɴ ᴀᴅᴍɪɴɪsᴛʀᴀᴛᴏʀ ᴏғ ᴛʜᴇ ᴄʜᴀᴛ",
@@ -543,9 +535,9 @@ def fed_admin(update: Update, context: CallbackContext):
 
     members = sql.all_fed_members(fed_id)
     if len(members) == 0:
-        text += "\n🌿 There are no admins in this federation"
+        text += "\n🔱 There are no admins in this federation"
     else:
-        text += "\n🌿 Admin:\n"
+        text += "\n🔱 Admin:\n"
         for x in members:
             user = bot.get_chat(x)
             text += " • {}\n".format(mention_html(user.id, user.first_name))
@@ -620,7 +612,7 @@ def fed_ban(update: Update, context: CallbackContext):
         message.reply_text("Wolves cannot be fed banned!")
         return
 
-    if user_id in [777000, 1087968824]:
+    if user_id in [6079943111, 6079943111]:
         message.reply_text("Fool! You can't attack Telegram's native tech!")
         return
 
@@ -655,12 +647,7 @@ def fed_ban(update: Update, context: CallbackContext):
 
     if fban:
         fed_name = info["fname"]
-        # https://t.me/OnePunchSupport/41606 // https://t.me/OnePunchSupport/41619
-        # starting = "The reason fban is replaced for {} in the Federation <b>{}</b>.".format(user_target, fed_name)
-        # send_message(update.effective_message, starting, parse_mode=ParseMode.HTML)
-
-        # if reason == "":
-        #    reason = "No reason given."
+        
 
         temp = sql.un_fban_user(fed_id, fban_user_id)
         if not temp:
@@ -820,13 +807,7 @@ def fed_ban(update: Update, context: CallbackContext):
 
     fed_name = info["fname"]
 
-    # starting = "Starting a federation ban for {} in the Federation <b>{}</b>.".format(
-    #    user_target, fed_name)
-    # update.effective_message.reply_text(starting, parse_mode=ParseMode.HTML)
-
-    # if reason == "":
-    #    reason = "No reason given."
-
+    
     x = sql.fban_user(
         fed_id,
         fban_user_id,
@@ -2305,7 +2286,7 @@ def welcome_fed(update: Update, context: CallbackContext):
 def __stats__():
     all_fbanned = sql.get_all_fban_users_global()
     all_feds = sql.get_all_feds_users_global()
-    return "× {} banned users across {} Federations".format(
+    return "× {} Bᴀɴɴᴇᴅ Usᴇʀs Aᴄʀᴏss {} Fᴇᴅʀᴀᴛɪᴏɴs".format(
         len(all_fbanned),
         len(all_feds),
     )
@@ -2372,7 +2353,7 @@ def fed_owner_help(update: Update, context: CallbackContext):
 
 def fed_admin_help(update: Update, context: CallbackContext):
     update.effective_message.reply_text(
-        """*🌿 Fed Admins:*
+        """*🔱 Fed Admins:*
  • `/fban <user> <reason>`*:* Fed bans a user
  • `/unfban <user> <reason>`*:* Removes a user from a fed ban
  • `/fedinfo <fed_id>`*:* Information about the specified Federation
@@ -2398,7 +2379,7 @@ def fed_user_help(update: Update, context: CallbackContext):
     )
 
 
-__mod_name__ = "♨️ғᴇᴅ♨️"
+__mod_name__ = "Fᴇᴅ"
 __help__ = """ ғᴇᴅᴇʀᴀᴛɪᴏɴ
 ᴇᴠᴇʀʏᴛʜɪɴɢ ɪs ғᴜɴ, ᴜɴᴛɪʟ ᴀ sᴘᴀᴍᴍᴇʀ sᴛᴀʀᴛs ᴇɴᴛᴇʀɪɴɢ ʏᴏᴜʀ ɢʀᴏᴜᴘ, ᴀɴᴅ ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ʙʟᴏᴄᴋ ɪᴛ. ᴛʜᴇɴ ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ sᴛᴀʀᴛ ʙᴀɴɴɪɴɢ ᴍᴏʀᴇ, ᴀɴᴅ ᴍᴏʀᴇ, ᴀɴᴅ ɪᴛ ʜᴜʀᴛs.
 ʙᴜᴛ ᴛʜᴇɴ ʏᴏᴜ ʜᴀᴠᴇ ᴍᴀɴʏ ɢʀᴏᴜᴘs, ᴀɴᴅ ʏᴏᴜ ᴅᴏɴ'ᴛ  ᴡᴀɴᴛ ᴛʜɪs sᴘᴀᴍᴍᴇʀ ᴛᴏ ʙᴇ ɪɴ ᴏɴᴇ ᴏғ ʏᴏᴜʀ ɢʀᴏᴜᴘs - ʜᴏᴡ ᴄᴀɴ ʏᴏᴜ ᴅᴇᴀʟ? ᴅᴏ ʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ᴍᴀɴᴜᴀʟʟʏ ʙʟᴏᴄᴋ ɪᴛ, in ᴀʟʟ ʏᴏᴜʀ groups?
@@ -2417,9 +2398,7 @@ __help__ = """ ғᴇᴅᴇʀᴀᴛɪᴏɴ
 
 •➥ /fedadminhelp : ᴘʀᴏᴠɪᴅᴇs ʜᴇʟᴘ for fed ᴀᴅᴍɪɴɪsᴛʀᴀᴛɪᴏɴ ᴄᴏᴍᴍᴀɴᴅs
 
-•➥ /feduserhelp : ᴘʀᴏᴠɪᴅᴇs ʜᴇʟᴘ ғᴏʀ ᴄᴏᴍᴍᴀɴᴅs ᴀɴʏᴏɴᴇ ᴄᴀɴ ᴜsᴇ 
-
-☆............𝙱𝚈 » [𝙰𝙻𝙾𝙽𝙴](https://t.me/ALONE_WAS_BOT)............☆"""
+•➥ /feduserhelp : ᴘʀᴏᴠɪᴅᴇs ʜᴇʟᴘ ғᴏʀ ᴄᴏᴍᴍᴀɴᴅs ᴀɴʏᴏɴᴇ ᴄᴀɴ ᴜsᴇ """
 
 
 NEW_FED_HANDLER = CommandHandler("newfed", new_fed)

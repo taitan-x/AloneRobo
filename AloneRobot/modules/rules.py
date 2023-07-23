@@ -136,7 +136,7 @@ def clear_rules(update: Update, context: CallbackContext):
 
 
 def __stats__():
-    return f"• {sql.num_chats()} groups have rules."
+    return f"• {sql.num_chats()} ɢʀᴏᴜᴘs ʜᴀᴠᴇ ʀᴜʟᴇs."
 
 
 def __import_data__(chat_id, data):
@@ -159,15 +159,13 @@ __help__ = """
 *Admins only:*
  ‣ `/setrules <your rules here>`*:* set the rules for this chat.
  ‣ `/clearrules`*:* clear the rules for this chat.
-
-☆............𝙱𝚈 » [𝙰𝙻𝙾𝙽𝙴](https://t.me/ALONE_WAS_BOT)............☆
 """
 
-__mod_name__ = "⚡Rᴜʟᴇs⚡"
+__mod_name__ = "Rᴜʟᴇs"
 
-GET_RULES_HANDLER = CommandHandler("rules", get_rules)
-SET_RULES_HANDLER = CommandHandler("setrules", set_rules)
-RESET_RULES_HANDLER = CommandHandler("clearrules", clear_rules)
+GET_RULES_HANDLER = CommandHandler("rules", get_rules, run_async=True)
+SET_RULES_HANDLER = CommandHandler("setrules", set_rules, run_async=True)
+RESET_RULES_HANDLER = CommandHandler("clearrules", clear_rules, run_async=True)
 
 dispatcher.add_handler(GET_RULES_HANDLER)
 dispatcher.add_handler(SET_RULES_HANDLER)

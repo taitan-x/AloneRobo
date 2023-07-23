@@ -1,15 +1,15 @@
 from aiohttp import ClientSession
 from pyrogram import filters
-
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from AloneRobot import pbot
 from AloneRobot.utils.errors import capture_err
 
 
-@pbot.on_message(filters.command("github"))
+@pbot.on_message(filters.command(["github","git"]))
 @capture_err
 async def github(_, message):
     if len(message.command) != 2:
-        return await message.reply_text("/git username")
+        return await message.reply_text("/github {username} \n`/github TeamAloneOp`")
     username = message.text.split(None, 1)[1]
     URL = f"https://api.github.com/users/{username}"
     async with ClientSession() as session:
@@ -29,10 +29,14 @@ async def github(_, message):
                 repositories = result["public_repos"]
                 followers = result["followers"]
                 following = result["following"]
-                caption = f"""**Info Of {name}**
+                global Alone
+                Alone = [[
+            InlineKeyboardButton(text="ᴘʀᴏғɪʟᴇ ʟɪɴᴋ", url=url),
+            InlineKeyboardButton("Cʟᴏsᴇ",callback_data="close_reply")
+            ]]     
+                caption = f"""**Iɴғᴏ Oғ {name}**
 **ᴜsᴇʀɴᴀᴍᴇ :** `{username}`
 **ʙɪᴏ :** `{bio}`
-**ᴘʀᴏғɪʟᴇ ʟɪɴᴋ :** [Here]({url})
 **ᴄᴏᴍᴘᴀɴʏ :** `{company}`
 **ᴄʀᴇᴀᴛᴇᴅ ᴏɴ:** `{created_at}`
 **ʀᴇᴘᴏsɪᴛᴏʀɪᴇs :** `{repositories}`
@@ -40,17 +44,16 @@ async def github(_, message):
 **ʟᴏᴄᴀᴛɪᴏɴ :** `{location}`
 **ғᴏʟʟᴏᴡᴇʀs  :** `{followers}`
 **ғᴏʟʟᴏᴡɪɴɢ :** `{following}`"""
-            except:
-                print(str(e))
-    await message.reply_photo(photo=avatar_url, caption=caption)
+            except Exception as e:
+                await message.reply(f"#ERROR {e}")
+                  
+    await message.reply_photo(photo=avatar_url, caption=caption,reply_markup=InlineKeyboardMarkup(Alone))
 
 
-__mod_name__ = "📍Gɪᴛʜᴜʙ📍"
+__mod_name__ = "Gɪᴛʜᴜʙ"
 
 __help__ = """
-ɪ ᴡɪʟʟ ɢɪᴠᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ɢɪᴛʜᴜʙ ᴘʀᴏғɪʟᴇ 
+ᴘʀᴏᴠɪᴅᴇs ʏᴏᴜ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴀ ɢɪᴛʜᴜʙ ᴘʀᴏғɪʟᴇ. 
 
- ❍ /github <ᴜsᴇʀɴᴀᴍᴇ>*:* ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴀ ɢɪᴛʜᴜʙ ᴜsᴇʀ.
-
-☆............𝙱𝚈 » [𝙰𝙻𝙾𝙽𝙴](https://t.me/ALONE_WAS_BOT)............☆
+ ❍ /github <ᴜsᴇʀɴᴀᴍᴇ> *:* ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴀ ɢɪᴛʜᴜʙ ᴜsᴇʀ.
 """

@@ -4,7 +4,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from AloneRobot import OWNER_ID as owner_id
-from AloneRobot import SUPPORT_CHAT as log
+from AloneRobot import SUPPORT_CHAT as log,BOT_NAME,START_IMG
 from AloneRobot import pbot as Client
 from AloneRobot.utils.errors import capture_err
 
@@ -39,7 +39,7 @@ async def bug(_, msg: Message):
     datetimes_fmt = "%d-%m-%Y"
     datetimes = datetime.utcnow().strftime(datetimes_fmt)
 
-    thumb = "https://graph.org/file/2394ae3aefe35372637bb.mp4"
+    
 
     bug_report = f"""
 **#ʙᴜɢ : ** **tg://user?id={owner_id}**
@@ -75,7 +75,7 @@ async def bug(_, msg: Message):
             )
             await Client.send_photo(
                 log,
-                photo=thumb,
+                photo=START_IMG,
                 caption=f"{bug_report}",
                 reply_markup=InlineKeyboardMarkup(
                     [
@@ -113,9 +113,7 @@ async def close_send_photo(_, CallbackQuery):
 
 
 __help__ = """
-*ғᴏʀ ʀᴇᴩᴏʀᴛɪɴɢ ᴀ ʙᴜɢ ɪɴ  ᴀᴅᴠᴇɴᴛᴜʀᴇ ✘ ʀᴏʙᴏᴛ*
+*ғᴏʀ ʀᴇᴩᴏʀᴛɪɴɢ ᴀ ʙᴜɢ *
  ❍ /bug *:* ᴛᴏ ʀᴇᴩᴏʀᴛ ᴀ ʙᴜɢ ᴀᴛ sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ.
-
-☆............𝙱𝚈 » [𝙰𝙻𝙾𝙽𝙴](https://t.me/ALONE_WAS_BOT)............☆
 """
-__mod_name__ = "♨️Bᴜɢ♨️"
+__mod_name__ = "Bᴜɢ"
